@@ -12,7 +12,8 @@ if ( isset($_POST['name']) && isset($_POST['number']) && isset($_POST['email']))
     // var_dump($configs['backend_port']);
 
     if(!is_numeric($number) || empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
+        header("location: /?message=failure");
+    } else {
         $url = 'http://' . $configs['backend_hostname'] . ':' . $configs['backend_port'] . '/rsvps';
 
         // var_dump($url);
@@ -48,9 +49,13 @@ if ( isset($_POST['name']) && isset($_POST['number']) && isset($_POST['email']))
         $resp = curl_exec($curl);
         curl_close($curl);
         var_dump($resp);
-        
-        header("location: /?message=failure");
-    } else {
+
+        if ( $resp == false) {
+            header("location: /?message=failure");
+        } else {
+            header("location: /?message=success");
+        }
+
         header("location: /?message=success");
     }
     
