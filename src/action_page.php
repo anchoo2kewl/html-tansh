@@ -1,4 +1,6 @@
 <?php
+$configs = include('config.php');
+
 if ( isset($_POST['name']) && isset($_POST['number']) && isset($_POST['email'])) {
     $name=htmlspecialchars($_POST['name']);
     $email=htmlspecialchars($_POST['email']);
