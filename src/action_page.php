@@ -6,17 +6,17 @@ if ( isset($_POST['name']) && isset($_POST['number']) && isset($_POST['email']))
     $email=htmlspecialchars($_POST['email']);
     $number=htmlspecialchars($_POST['number']);
 
-    // var_dump($name);
-    // var_dump($configs['event_id']);
-    // var_dump($configs['backend_hostname']);
-    // var_dump($configs['backend_port']);
+    var_dump($name);
+    var_dump($configs['event_id']);
+    var_dump($configs['backend_hostname']);
+    var_dump($configs['backend_port']);
 
     if(!is_numeric($number) || empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("location: /?message=failure");
     } else {
         $url = 'http://' . $configs['backend_hostname'] . ':' . $configs['backend_port'] . '/rsvps';
 
-        // var_dump($url);
+        var_dump($url);
     
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -55,8 +55,6 @@ if ( isset($_POST['name']) && isset($_POST['number']) && isset($_POST['email']))
         } else {
             header("location: /?message=success");
         }
-
-        header("location: /?message=success");
     }
     
 } else {
