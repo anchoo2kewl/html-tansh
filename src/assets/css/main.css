@@ -24,13 +24,13 @@ input[type=number]{
 }
 
 .annaprashan {
-	color: white;
+	color: rgb(58, 58, 58);
     font-size: 20px;
     text-shadow:
-        0.07em 0 black,
-        0 0.07em black,
-        -0.07em 0 black,
-        0 -0.07em black;
+        0.17em 0 rgb(123, 100, 100),
+        0 0.17em rgb(123, 100, 100),
+        -0.17em 0 rgb(123, 100, 100),
+        0 -0.17em rgb(123, 100, 100),
 }
 
 html, body, div, span, applet, object,
